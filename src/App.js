@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import "./App.css";
 
-// example call: https://api.nasa.gov/planetary/apod?api_key=7tMbzFwnoMa0dua93R3O4zh4M9ctDWp4vBEAikcQ
+import InfoCard from "./InfoCard.js";
 
 function App() {
   const [data, setData] = useState({});
@@ -16,10 +16,7 @@ function App() {
   return (
     <div className="App">
       <h1>NASA Photo of the Day</h1>
-      <h2>{data.title}</h2>
-      <img src={data.url} alt={data.title} />
-      <p>{data.copyright}, {data.date}</p>
-      <p>{data.explanation}</p>
+      <InfoCard data={data}/>
     </div>
   );
 }
