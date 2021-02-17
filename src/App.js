@@ -5,17 +5,17 @@ import "./App.css";
 
 import InfoCard from "./InfoCard.js";
 
+import { API_KEY } from "./constants";
+
 function App() {
   const [data, setData] = useState({});
   const [networkError, setNetworkError] = useState(false);
 
   useEffect(() => {
-    Axios.get("https://api.nasa.gov/planetary/apod?api_key=7tMbzFwnoMa0dua93R3O4zh4M9ctDWp4vBEAikcQ")
+    Axios.get(`https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`)
       .then(res => setData(res.data))
       .catch(_ => setNetworkError(true));
   }, []);
-
-  console.log(data);
 
   return (
     <div className="App">
